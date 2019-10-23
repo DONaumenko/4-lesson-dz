@@ -1,5 +1,6 @@
 
 total_balance = 0
+pokupka_history = {}
 
 while True:
     print('Меню операций:')
@@ -20,6 +21,7 @@ while True:
         print('')
         print(f'Ваш текущий баланс: {total_balance} руб.')
         pokupka_sum = int(input('Укажите сумму покупки: '))
+
         if pokupka_sum > total_balance:
             print('Недостаточно средств на счете')
             print('')
@@ -27,10 +29,18 @@ while True:
             pokupka = input('Что покупаем? ')
             total_balance = total_balance - pokupka_sum
             print(f'Покупка прошла успешно. Ваш текущий баланс: {total_balance} руб.')
+            pokupka_history[pokupka] = pokupka_sum
             print('')
 
     elif choice == '3':
-        pass
+        # print(pokupka_history.items)
+        # print(list(pokupka_history.items()))
+        # print(pokupka_history)
+        print('')
+        print('История покупок:')
+        for product, price in pokupka_history.items():
+            print(f'{product}: {price} руб.')
+        print('')
 
     elif choice == '4':
         pass
