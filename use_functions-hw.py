@@ -1,4 +1,3 @@
-
 total_balance = 0
 pokupka_history = {}
 
@@ -43,7 +42,8 @@ while True:
         print('')
 
     elif choice == '4':
-        pass
+        print('Вы вышли из программы')
+        break
 
     else:
         print('Неверный пункт меню')
