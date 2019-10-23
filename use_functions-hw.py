@@ -1,52 +1,39 @@
-"""
-1. пополнение счета
-при выборе этого пункта пользователю предлагается ввести сумму на сколько пополнить счет
-после того как пользователь вводит сумму она добавляется к счету
-снова попадаем в основное меню
-"""
-# Начальное значение счета
+
 total_balance = 0
 
-def menu_output():
+while True:
     print('Меню операций:')
-    print('1. пополнение счета')
-    print('2. покупка')
-    print('3. история покупок')
-    print('4. выход')
-    choice = int(input('Напишите цифру от 1 до 4:'))
-    return choice
+    print('1. Пополнение счета')
+    print('2. Покупка')
+    print('3. История покупок')
+    print('4. Выход')
 
+    choice = input('Выберите пункт меню от 1 до 4: ')
 
-def popolnenie_scheta():
-    popolnenie = int(input('Сколько рублей вы хотите положить на счёт?'))
-    total_balance += popolnenie
-    print(f'Ваш баланс пополнен на {popolnenie} руб. Общий баланс: {total_balance} руб.')
-    menu_output()
+    if choice == '1':
+        popolnenie_sum = int(input('Укажите сумму пополнения: '))
+        total_balance += popolnenie_sum
+        print(f'Ваш баланс пополнен на {popolnenie_sum} руб.')
+        print('')
 
+    elif choice == '2':
+        print('')
+        print(f'Ваш текущий баланс: {total_balance} руб.')
+        pokupka_sum = int(input('Укажите сумму покупки: '))
+        if pokupka_sum > total_balance:
+            print('Недостаточно средств на счете')
+            print('')
+        else:
+            pokupka = input('Что покупаем? ')
+            total_balance = total_balance - pokupka_sum
+            print(f'Покупка прошла успешно. Ваш текущий баланс: {total_balance} руб.')
+            print('')
 
-def pokupka():
-    pass
+    elif choice == '3':
+        pass
 
+    elif choice == '4':
+        pass
 
-def pokupka_history():
-    pass
-
-choice = menu_output()
-if choice == 1:
-    popolnenie_scheta()
-elif choice == 2:
-    pokupka()
-elif choice == 3:
-    pokupka_history()
-elif choice == 4:
-    exit()
-else:
-    print('Нет такой буквы в этом слове:) Try again')
-
-
-
-
-
-
-
-
+    else:
+        print('Неверный пункт меню')
