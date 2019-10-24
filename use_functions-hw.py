@@ -27,14 +27,20 @@ while True:
         else:
             pokupka = input('Что покупаем? ')
             total_balance = total_balance - pokupka_sum
+
+            if pokupka in pokupka_history:
+                # Если такая покупка уже есть в списке, т.е. повторяется, то просто
+                # прибавляем её стоимость к уже имеющейся, но не создаем нового ключа,
+                # т.к. дублирующихся ключей в словаре быть не может (а значения могут)
+                pokupka_history[pokupka] += pokupka_sum
+            else:
+                # Если покупка уникальная, раньше её не было, то добавляем в словарь новую пару "ключ-значение"
+                pokupka_history[pokupka] = pokupka_sum
+
             print(f'Покупка прошла успешно. Ваш текущий баланс: {total_balance} руб.')
-            pokupka_history[pokupka] = pokupka_sum
             print('')
 
     elif choice == '3':
-        # print(pokupka_history.items)
-        # print(list(pokupka_history.items()))
-        # print(pokupka_history)
         print('')
         print('История покупок:')
         for product, price in pokupka_history.items():
