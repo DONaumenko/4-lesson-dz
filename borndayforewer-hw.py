@@ -1,4 +1,3 @@
-
 def check_birthday_year():
     year_of_birth = ''
     while year_of_birth != 1799:
@@ -16,7 +15,6 @@ def check_birthday_day():
         if day_of_birth == '6 июня':
             print('Верно')
 
+
 check_birthday_year()
 check_birthday_day()
-
-
